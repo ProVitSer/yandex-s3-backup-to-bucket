@@ -1,0 +1,31 @@
+{
+    "name": "yandex-s3-backup-to-bucket",
+    "version": "1.0.0",
+    "description": "Отправка backup файлов АТС на Yandex Object Storage в определенную папку в bucket, с уведомлением в Telegram",
+    "main": "s3.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ProVitSer/yandex-s3-backup-to-bucket.git"
+    },
+    "keywords": [
+        "YandexS3",
+        "bucket",
+        "YandexObjectStorage",
+        "PBX",
+        "Backup"
+    ],
+    "author": "ProVitSer",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ProVitSer/yandex-s3-backup-to-bucket/issues"
+    },
+    "homepage": "https://github.com/ProVitSer/yandex-s3-backup-to-bucket#readme",
+    "dependencies": {
+        "aws-sdk": "^2.682.0",
+        "fs": "0.0.1-security",
+        "telegram-bot-api": "^1.3.3"
+    }
+}
