@@ -1,1 +1,1 @@
-# yandex-s3-backup-to-bucket
+Скрипт отправки backup файлов на yandex s3.

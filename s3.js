@@ -6,7 +6,7 @@ const backupPath = process.argv[2],
     backupName = process.argv[3],
     client = process.argv[4];
 
-let api = new telegram({
+const api = new telegram({
     token: `TELEGRAM_TOKEN`,
     updates: {
         enabled: true
@@ -25,17 +25,13 @@ const s3 = new AWS.S3({
     }
 })
 
-const sendTelegram = (info) => {
-    api.sendMessage({
-            chat_id: ID_TELEGRAM_ЧАТА,
-            text: info
-        })
-        .then((data) => {
-            process.exit(0);
-        })
-        .catch((err) => {
-            process.exit(1);
-        });
+async function sendTelegram(info) {
+    try {
+        await api.sendMessage({ chat_id: ID_TELEGRAM_ЧАТА, text: info });
+        process.exit(0);
+    } catch (e) {
+        process.exit(1);
+    }
 }
 
 const deleteBackUpFile = (pathAndFile, data) => {
@@ -52,7 +48,7 @@ const deleteBackUpFile = (pathAndFile, data) => {
 }
 
 const uploadFile = (pathAndFile) => {
-    let now = new Date(),
+    const now = new Date(),
         year = now.getFullYear(),
         month = ("0" + (now.getMonth() + 1)).slice(-2),
         hours = now.getHours(),
